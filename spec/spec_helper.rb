@@ -1,12 +1,13 @@
-ENV["RAILS_ENV"] = "test"
+ENV["RAILS_ENV"] = 'test'
+require 'simplecov'
+SimpleCov.start
 
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../../config/environment', __FILE__)
 
-require "rspec/rails"
-require "shoulda/matchers"
-require "webmock/rspec"
+require 'rspec/rails'
+require 'shoulda/matchers'
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
 module Features
   # Extend this module in spec/support/features/*.rb
@@ -27,4 +28,3 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.javascript_driver = :webkit
-WebMock.disable_net_connect!(allow_localhost: true)
