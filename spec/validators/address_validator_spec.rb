@@ -6,7 +6,6 @@ class Location
   validates :address, address: true
 end
 
-
 describe AddressValidator do
   before(:each) do
     @location = Location.new
@@ -14,7 +13,7 @@ describe AddressValidator do
 
   context 'with a parseable address' do
     it 'should be valid' do
-      @location.address = '222 3rd Street, Suite 400, Cambridge, MA, 02142'
+      @location.address = ADDRESS
 
       expect(@location).to be_valid
     end

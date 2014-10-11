@@ -152,7 +152,7 @@ describe CompaniesController do
     context 'address attributes' do
       context 'valid' do
         it 'sets the address fields' do
-          @company_attr = { full_address: '222 3rd Street, Cambridge, MA, 02142' }
+          @company_attr = { full_address: ADDRESS }
 
           patch_company
           @company.reload
@@ -170,7 +170,7 @@ describe CompaniesController do
           patch_company
 
           expect(assigns[:company].errors.messages).to(
-            eq({ full_address: ['not a valid address'] }))
+            eq(full_address: ['not a valid address']))
         end
       end
     end
