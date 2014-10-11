@@ -1,6 +1,8 @@
 <%= simple_form_for(@company) do |form| %>
-  <%= form.input :name %>
-  <%= form.input :full_address %>
+  <%= form.input :name, label: 'Company Name', placeholder: 'Acme Co.' %>
+  <%= form.input :full_address,
+                 label: 'Street Address',
+                 placeholder: '123 A Street, Boston, MA, 00000' %>
 
   <%= form.submit %>
 <% end %>

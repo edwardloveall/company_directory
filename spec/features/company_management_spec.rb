@@ -2,9 +2,12 @@ require 'spec_helper'
 
 feature 'Company management' do
   scenario 'create a new company' do
+    attributes = company_attr(attributes_for(:company, :unparsed_address))
+
     visit root_path
     click_link 'New company'
-    fill_form_and_submit(:company, attributes_for(:company, :unparsed_address))
+
+    fill_form_and_submit(:company, attributes)
 
     expect(page).to have_content(I18n.t('flashes.companies.create.success'))
 
@@ -16,7 +19,9 @@ feature 'Company management' do
 
   scenario 'update company' do
     company = create(:company)
-    attributes = attributes_for(:company, :unparsed_address, name: 'Acme Co.')
+    attributes = company_attr(attributes_for(:company,
+                                             :unparsed_address,
+                                             name: 'Acme Co.'))
 
     visit root_path
     click_link company.name
@@ -38,4 +43,9 @@ feature 'Company management' do
 
     expect(page).to have_content(I18n.t('flashes.companies.destroy.success'))
   end
+end
+
+def company_attr(company)
+  company['Street Address'] = company.delete(:full_address)
+  company
 end
