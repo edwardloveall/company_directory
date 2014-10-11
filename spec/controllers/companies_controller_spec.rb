@@ -61,6 +61,12 @@ describe CompaniesController do
         expect(response).to redirect_to(company_path(assigns[:company]))
       end
 
+      it 'sets the :success flash' do
+        post_company
+
+        should set_the_flash[:success]
+      end
+
       context 'with an address' do
         it 'sets the address fields' do
           @company_attr = attributes_for(:company, :unparsed_address)
@@ -88,6 +94,12 @@ describe CompaniesController do
         post_company
 
         expect(response).to render_template(:new)
+      end
+
+      it 'sets the :failure flash' do
+        post_company
+
+        should set_the_flash[:failure]
       end
     end
   end
@@ -128,6 +140,12 @@ describe CompaniesController do
         patch_company
 
         expect(response).to redirect_to(edit_company_path(@company))
+      end
+
+      it 'sets the :success flash' do
+        patch_company
+
+        should set_the_flash[:success]
       end
     end
 
@@ -171,6 +189,12 @@ describe CompaniesController do
 
       it 'renders :edit' do
         expect(response).to render_template(:edit)
+      end
+
+      it 'sets the :failure flash' do
+        patch_company
+
+        should set_the_flash[:failure]
       end
     end
   end

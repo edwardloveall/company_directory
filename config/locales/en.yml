@@ -5,6 +5,16 @@ en:
         "%m/%d/%Y"
       with_weekday:
         "%a %m/%d/%y"
+  flashes:
+    companies:
+      create:
+        success: 'Company created.'
+        failure: 'Company not created. Please see the errors below.'
+      update:
+        success: 'Company updated.'
+        failure: 'Company not updated. Please see the errors below.'
+      destroy:
+        success: 'Company deleted.'
 
   time:
     formats:
