@@ -144,6 +144,17 @@ describe CompaniesController do
           expect(@company.zipcode).to eq('02142')
         end
       end
+
+      context 'invalid' do
+        it "doesn't sets the address fields" do
+          @company_attr = { full_address: '222 3rd Street' }
+
+          patch_company
+
+          expect(assigns[:company].errors.messages).to(
+            eq({ full_address: ['not a valid address'] }))
+        end
+      end
     end
 
     context 'invalid attributes' do

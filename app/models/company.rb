@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   validates_presence_of :name
+  validates :full_address, address: true, allow_blank: true
 
   scope :ordered, -> { order(name: :asc) }
 
