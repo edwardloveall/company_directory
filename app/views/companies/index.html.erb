@@ -1,5 +1,7 @@
-<%= link_to 'New company', new_company_path %>
+<%= link_to 'New company', new_company_path, class: :action %>
 
-<% @companies.each do |company| %>
-  <%= link_to company.name, company %>
-<% end %>
+<ul>
+  <%= content_tag_for :li, @companies do |company| %>
+    <%= link_to company.name, company %>
+  <% end %>
+</ul>

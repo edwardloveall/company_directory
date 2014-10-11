@@ -17,19 +17,9 @@
   padding: $base-spacing / 2;
 }
 
-%flash-alert {
-  @extend %flash-base;
-  @include flash($alert-color);
-}
-
-%flash-error {
+%flash-failure {
   @extend %flash-base;
   @include flash($error-color);
-}
-
-%flash-notice {
-  @extend %flash-base;
-  @include flash($notice-color);
 }
 
 %flash-success {

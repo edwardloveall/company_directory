@@ -1,5 +1,5 @@
-<%= link_to 'Edit', edit_company_path(@company) %>
-<%= link_to 'Delete', company_path(@company), method: :delete, data: { confirm: 'Are you sure?' }, class: :delete %>
+<%= link_to 'Edit', edit_company_path(@company), class: :action %>
+<%= link_to 'Delete', company_path(@company), method: :delete, data: { confirm: 'Are you sure?' }, class: [:delete, :action] %>
 
 <dl>
   <dt>Company Name</dt>

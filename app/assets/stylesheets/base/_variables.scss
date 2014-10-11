@@ -30,6 +30,9 @@ $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
+$red: darken($light-red, 50);
+$yellow: darken($light-yellow, 50);
+$green: darken($light-green, 50);
 
 // Background Color
 $base-background-color: white;

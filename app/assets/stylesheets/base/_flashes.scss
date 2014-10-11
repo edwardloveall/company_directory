@@ -1,0 +1,7 @@
+div#flash_success {
+  @extend %flash-success;
+}
+
+div#flash_failure {
+  @extend %flash-failure;
+}

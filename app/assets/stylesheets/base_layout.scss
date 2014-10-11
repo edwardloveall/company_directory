@@ -1,0 +1,15 @@
+header {
+  margin-bottom: $base-spacing;
+  padding: $base-spacing;
+
+  h1 {
+    a {
+      color: $dark-gray;
+    }
+  }
+}
+
+main {
+  padding: 0 $base-spacing $base-spacing;
+  max-width: $max-width;
+}

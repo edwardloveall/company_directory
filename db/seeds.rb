@@ -27,5 +27,6 @@ companies = [
 ]
 
 companies.each do |company_attr|
-  Company.create(company_attr)
+  company = Company.create(company_attr)
+  CompanyAddressParser.perform!(company: company)
 end

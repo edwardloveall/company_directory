@@ -9,8 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "flashes" -%>
-  <%= yield %>
-  <%= render "javascript" %>
+  <header>
+    <h1><%= link_to t('titles.application'), root_path %></h1>
+  </header>
+  <main>
+    <%= render "flashes" -%>
+    <%= yield %>
+    <%= render "javascript" %>
+  </main>
 </body>
 </html>
