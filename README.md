@@ -1,4 +1,4 @@
-Address book
+Company directory
 ============
 
 Getting Started
@@ -20,6 +20,4 @@ Guidelines
 Use the following guides for getting things done, programming well, and
 programming in style.
 
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
+* [Style](https://github.com/IntrepidPursuits/web-style-guides/blob/master/style.md)
