@@ -1,4 +1,6 @@
 @mixin flash($color) {
+  @include animation(fade_in 0.4s ease);
+
   background: $color;
   color: darken($color, 60);
 
@@ -25,4 +27,13 @@
 %flash-success {
   @extend %flash-base;
   @include flash($success-color);
+}
+
+@include keyframes(fade_in) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
