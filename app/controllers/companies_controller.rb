@@ -15,6 +15,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
+      CompanyAddressParser.perform!(company: @company)
       redirect_to @company
     else
       render :new
@@ -29,6 +30,7 @@ class CompaniesController < ApplicationController
     @company = find_company
 
     if @company.update(company_params)
+      CompanyAddressParser.perform!(company: @company)
       redirect_to edit_company_path(@company)
     else
       render :edit

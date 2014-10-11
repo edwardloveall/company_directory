@@ -60,6 +60,19 @@ describe CompaniesController do
 
         expect(response).to redirect_to(company_path(assigns[:company]))
       end
+
+      context 'with an address' do
+        it 'sets the address fields' do
+          @company_attr = attributes_for(:company, :unparsed_address)
+
+          post_company
+          company = assigns[:company]
+
+          expect(company.city).to eq('Cambridge')
+          expect(company.state).to eq('MA')
+          expect(company.zipcode).to eq('02142')
+        end
+      end
     end
 
     context 'invalid attributes' do
@@ -115,6 +128,21 @@ describe CompaniesController do
         patch_company
 
         expect(response).to redirect_to(edit_company_path(@company))
+      end
+    end
+
+    context 'address attributes' do
+      context 'valid' do
+        it 'sets the address fields' do
+          @company_attr = { full_address: '222 3rd Street, Cambridge, MA, 02142' }
+
+          patch_company
+          @company.reload
+
+          expect(@company.city).to eq('Cambridge')
+          expect(@company.state).to eq('MA')
+          expect(@company.zipcode).to eq('02142')
+        end
       end
     end
 
