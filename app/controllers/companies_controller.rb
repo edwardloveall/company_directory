@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      CompanyAddressParser.perform!(company: @company)
+      CompanyAddresser.perform!(company: @company)
       flash[:success] = t('flashes.companies.create.success')
       redirect_to @company
     else
@@ -32,7 +32,7 @@ class CompaniesController < ApplicationController
     @company = find_company
 
     if @company.update(company_params)
-      CompanyAddressParser.perform!(company: @company)
+      CompanyAddresser.perform!(company: @company)
       flash[:success] = t('flashes.companies.update.success')
       redirect_to @company
     else

@@ -1,4 +1,4 @@
-class CompanyAddressParser
+class CompanyAddresser
   attr_accessor :company
 
   def initialize(company:)
@@ -11,7 +11,7 @@ class CompanyAddressParser
 
   def perform!
     address = StreetAddress::US.parse(@company.full_address)
-    if address
+    if @company.has_full_address? && @company.valid?
       company.tap do |c|
         c.update(
           city: address.city,
