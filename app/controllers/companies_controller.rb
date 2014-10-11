@@ -34,7 +34,7 @@ class CompaniesController < ApplicationController
     if @company.update(company_params)
       CompanyAddressParser.perform!(company: @company)
       flash[:success] = t('flashes.companies.update.success')
-      redirect_to edit_company_path(@company)
+      redirect_to @company
     else
       flash[:failure] = t('flashes.companies.update.failure')
       render :edit
@@ -44,8 +44,8 @@ class CompaniesController < ApplicationController
   def destroy
     @company = find_company
 
-    if @company
-      @company.destroy
+    if @company.destroy
+      flash[:success] = t('flashes.companies.destroy.success')
       redirect_to companies_path
     end
   end

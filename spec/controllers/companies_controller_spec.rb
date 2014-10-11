@@ -139,7 +139,7 @@ describe CompaniesController do
       it 'redirects to #edit' do
         patch_company
 
-        expect(response).to redirect_to(edit_company_path(@company))
+        expect(response).to redirect_to(company_path(@company))
       end
 
       it 'sets the :success flash' do
@@ -212,6 +212,12 @@ describe CompaniesController do
       delete_company
 
       expect(response).to redirect_to(companies_path)
+    end
+
+    it 'sets the :success flash' do
+      delete_company
+
+      should set_the_flash[:success]
     end
   end
 end

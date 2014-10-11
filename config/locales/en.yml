@@ -16,6 +16,12 @@ en:
       destroy:
         success: 'Company deleted.'
 
+  helpers:
+    submit:
+      company:
+        create: 'Create company'
+        update: 'Update company'
+
   time:
     formats:
       default:
